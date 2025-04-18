@@ -1,0 +1,9 @@
+﻿@model Cumilative3_CRUD.Models.Student
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<h2>Student @Model.StudentId</h2>
+<p><strong>Name:</strong> @Model.FullName</p>
+<p><strong>Enroll Date:</strong> @Model.EnrollDate.ToShortDateString()</p>
+<a asp-action="List" class="btn btn-secondary">Back to List</a>

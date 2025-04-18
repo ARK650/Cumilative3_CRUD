@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Cumilative3_CRUD.Models.Teacher>
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+
+<p>
+    <a asp-action="New" class="btn btn-success">➕ Add New Teacher</a>
+</p>
+
+<form method="get" class="form-inline">
+    <div class="form-group">
+        <label>Hire Date from:</label>
+        <input type="date" name="from" value="@ViewData["From"]" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>to:</label>
+        <input type="date" name="to" value="@ViewData["To"]" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-secondary">Filter</button>
+</form>
+
+<table class="table-custom">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Employee #</th>
+            <th>Hire Date</th>
+            <th>Salary</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr>
+                <td>@t.TeacherId</td>
+                <td>@t.FullName</td>
+                <td>@t.EmployeeNumber</td>
+                <td>@t.HireDate.ToShortDateString()</td>
+                <td>@t.Salary</td>
+                <td class="action-buttons">
+                    <a asp-action="Edit" asp-route-id="@t.TeacherId" class="btn btn-info">✏️ Edit</a>
+                    <a asp-action="DeleteConfirm" asp-route-id="@t.TeacherId" class="btn btn-danger">🗑️ Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

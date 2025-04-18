@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["SchoolDB"] - Cumilative3_CRUD</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <div class="credentials">
+            Username: <strong>root</strong> |
+            Password: <strong>REDACTED</strong> |
+            Database: <strong>schooldb</strong>
+        </div>
+
+        <nav class="main-nav">
+            <a asp-controller="TeacherPage" asp-action="List" class="nav-link"> Teachers Dashboard</a>
+            <a asp-controller="StudentPage" asp-action="List" class="nav-link">Student Dashboard</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        @RenderBody()
+    </main>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

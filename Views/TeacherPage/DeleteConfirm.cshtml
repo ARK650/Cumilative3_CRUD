@@ -1,0 +1,14 @@
+﻿@model Cumilative3_CRUD.Models.Teacher
+@{
+    ViewData["Title"] = "Confirm Delete";
+}
+
+<h2>Confirm Delete</h2>
+
+<p>Are you sure you want to delete <strong>@Model.FullName</strong> (ID: @Model.TeacherId)?</p>
+
+<form asp-action="DeleteConfirm" method="post">
+    <input type="hidden" asp-for="TeacherId" />
+    <button type="submit">Yes, Delete</button>
+    <a asp-action="List">Cancel</a>
+</form>

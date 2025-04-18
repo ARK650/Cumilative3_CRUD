@@ -1,0 +1,43 @@
+﻿@model Cumilative3_CRUD.Models.Teacher
+@{
+    ViewData["Title"] = "Edit Teacher";
+}
+
+<h2>Edit Teacher</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="TeacherId" />
+
+    <div class="form-group">
+        <label asp-for="TeacherFName">First Name</label>
+        <input asp-for="TeacherFName" />
+        <span asp-validation-for="TeacherFName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TeacherLName">Last Name</label>
+        <input asp-for="TeacherLName" />
+        <span asp-validation-for="TeacherLName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EmployeeNumber">Employee Number</label>
+        <input asp-for="EmployeeNumber" />
+        <span asp-validation-for="EmployeeNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HireDate">Hire Date</label>
+        <input asp-for="HireDate" type="date" />
+        <span asp-validation-for="HireDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Salary">Salary</label>
+        <input asp-for="Salary" type="number" step="0.01" />
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a asp-action="List" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

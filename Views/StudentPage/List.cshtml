@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Cumilative3_CRUD.Models.Student>
+@{
+    ViewData["Title"] = "Students";
+}
+
+<h2>All Students</h2>
+
+<table class="table-custom">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Enroll Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.StudentId</td>
+                <td>@s.FullName</td>
+                <td>@s.EnrollDate.ToShortDateString()</td>
+                <td class="action-buttons">
+                    <a asp-action="Show" asp-route-id="@s.StudentId" class="btn btn-info">View</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
